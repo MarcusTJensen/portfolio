@@ -1,0 +1,22 @@
+.item {
+  background-color: darkcyan;
+  margin-right: 2vw;
+  height: 25vh;
+  min-width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 0.5vw;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  border-radius: 20px;
+}
+
+.description:hover + .itemText {
+  display: none;
+}
+
+.languagesImg {
+  margin-right: 1vw;
+}
