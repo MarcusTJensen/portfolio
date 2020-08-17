@@ -1,0 +1,17 @@
+$secondary-color: #ff4676;
+
+.projectsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#contentText {
+    color: $secondary-color;
+    font-weight: bolder;
+    font-size: 5em;
+    margin-bottom: 2vh;
+    margin-left: 0.5vw;
+  }

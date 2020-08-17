@@ -1,0 +1,35 @@
+$accent-yellow: #ffe430;
+$secondary-color: #ff4676;
+
+.introContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: $accent-yellow;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
+    height: 100%;
+    background-color: $accent-yellow;
+}
+
+#leftContainer {
+}
+
+.bio {
+    color: $secondary-color;
+    font-size: 1.5em;
+}
+
+.title {
+    color: $secondary-color;
+    font-size: 5em;
+    justify-self: flex-start;
+}

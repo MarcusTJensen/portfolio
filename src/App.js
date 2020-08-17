@@ -1,44 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import RepositoryItem from './components/RepositoryItem';
+import React, { useState, useEffect, useRef } from 'react';
+import './App.scss';
+import Intro from "./Intro";
+import Projects from "./Projects";
 
 function App() {
 
-  const [getRepos, setRepos] = useState([]);
+  const aboutMe = useRef(null);
+  const projects = useRef(null);
+
+  const [activePage, setActivePage] = useState("aboutMe");
+  const [headerStyle, setHeaderStyle] = useState({color: "#0f1c70"});
+  const [headerStyleActive, setHeaderStyleActive] = useState({borderBottom: "2px solid", color: headerStyle});
+
+  const scrollToRef = (ref, page) => {
+    window.scrollTo(0, ref.current.offsetTop);
+    if(page === "projects") {
+      setHeaderStyle({color: "#ff4676"});
+      setHeaderStyleActive({color: "#ff4676", borderBottom: "2px solid"});
+      setActivePage("projects");
+    } else if(page === "aboutMe") {
+      setHeaderStyle({color: "#0f1c70"});
+      setHeaderStyleActive({borderBottom: "2px solid", color: "#0f1c70"});
+      setActivePage("aboutMe");
+    }
+  }
+
+  const changeColorOnScroll = () => {
+    if(window.offsetTop === aboutMe.current.offsetTop) {
+      setHeaderStyle({color: "#0f1c70"});
+      setHeaderStyleActive({borderBottom: "2px solid", color: "#0f1c70"});
+      setActivePage("aboutMe");
+    }
+  }
 
   useEffect(() => {
-    getReposFromGit();
-  }, []);
-
-  const getReposFromGit = async() => {
-    const response = await fetch('https://api.github.com/users/marcustjensen/repos');
-    const result = await response.json();
-    console.log(result);
-    setRepos(result);
-  };
-
-  const getLanguagesInRepo = async(name) => {
-    const response = await fetch(`https://api.github.com/repos/marcustjensen/${name}/languages`);
-    const result = await response.json();
-    let languageList = [];
-    for(let lnge in result) {
-      lnge === "C++" ? languageList.push("cpp") : lnge === "C#" ? languageList.push("csharp") :
-      languageList.push(lnge.toLowerCase());
-    }
-    return languageList;
-  };
+    console.log(projects);
+  }, [])
 
   return (
-    <div className="App">
-      <a>My projects :</a>
-      <div id="reposList">
-        {
-          getRepos.map( (repo) => (
-              <RepositoryItem name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />
-          ))
-        }
+    <div className="App" onScroll={changeColorOnScroll}>
+      <div className="header">
+        <p className="option" style={activePage === "aboutMe" ? headerStyleActive : headerStyle} onClick={() => scrollToRef(aboutMe, "aboutMe")}>About me</p>
+        <p className="option" style={activePage === "projects" ? headerStyleActive : headerStyle} onClick={() => scrollToRef(projects, "projects")}>My projects</p>
+        <p className="option" style={headerStyle}>Contact info</p>
       </div>
+      <Intro reference={aboutMe} />
+      <Projects reference={projects} />
     </div>
   );
 }
