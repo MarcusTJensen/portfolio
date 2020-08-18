@@ -25,7 +25,8 @@ const RepositoryItem = (props) => {
 
     return(
         <div id="itemContainer">
-                <div onClick={() => window.location.href= `github.com/marcustjensen/${props.name}`} className="item" style={{
+            <a target="_blank" href={`https://www.github.com/marcustjensen/${props.name}`} style={{textDecoration: "none"}}>
+                <div className="item" style={{
                     background: `url(https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${languages[0]}/${languages[0]}.png)`
                     }}>
                     <div id="languagesDiv">
@@ -42,6 +43,7 @@ const RepositoryItem = (props) => {
                     <p className="itemText">{props.name}</p>
                     <p className="description">{props.description}</p>
                 </div>
+            </a>
         </div>
     );
 };

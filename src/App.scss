@@ -8,6 +8,9 @@ $primary-color: #0f1c70;
   overflow: auto;
 }
 
+#reposList::-webkit-scrollbar {
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -15,7 +18,8 @@ $primary-color: #0f1c70;
   flex-basis: 100%;
   background-color: $primary-color;
   min-height: 100vh;
-  min-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .header {
@@ -26,7 +30,8 @@ $primary-color: #0f1c70;
 }
 
 .option {
+  cursor: pointer;
   margin-right: 10vw;
   margin-left: 5vw;
-  color: $primary-color;
+  color: $secondary-color;
 }

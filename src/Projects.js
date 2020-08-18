@@ -32,7 +32,7 @@ const Projects = (props) => {
     return(
         <div class="projectsContainer" ref={props.reference}>
             <a id="contentText">My projects :</a>
-            <div id="reposList">
+            <div id="reposList" onScroll={() => console.log("zup G")}>
                 {
                     getRepos.map( (repo) => (
                         <RepositoryItem name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />

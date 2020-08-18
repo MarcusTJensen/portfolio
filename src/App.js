@@ -5,44 +5,37 @@ import Projects from "./Projects";
 
 function App() {
 
+  const [activePage, setActivePage] = useState("aboutMe");
+
   const aboutMe = useRef(null);
   const projects = useRef(null);
+  const container = useRef(null);
 
-  const [activePage, setActivePage] = useState("aboutMe");
-  const [headerStyle, setHeaderStyle] = useState({color: "#0f1c70"});
-  const [headerStyleActive, setHeaderStyleActive] = useState({borderBottom: "2px solid", color: headerStyle});
+  const activeHeaderStyle = {
+    borderBottom: "2px solid #ff4676",
+    fontWeight: "bolder"
+  };
 
-  const scrollToRef = (ref, page) => {
+  const scrollToRef = (ref) => {
     window.scrollTo(0, ref.current.offsetTop);
-    if(page === "projects") {
-      setHeaderStyle({color: "#ff4676"});
-      setHeaderStyleActive({color: "#ff4676", borderBottom: "2px solid"});
-      setActivePage("projects");
-    } else if(page === "aboutMe") {
-      setHeaderStyle({color: "#0f1c70"});
-      setHeaderStyleActive({borderBottom: "2px solid", color: "#0f1c70"});
-      setActivePage("aboutMe");
-    }
-  }
-
-  const changeColorOnScroll = () => {
-    if(window.offsetTop === aboutMe.current.offsetTop) {
-      setHeaderStyle({color: "#0f1c70"});
-      setHeaderStyleActive({borderBottom: "2px solid", color: "#0f1c70"});
-      setActivePage("aboutMe");
-    }
-  }
+  };
 
   useEffect(() => {
     console.log(projects);
-  }, [])
+  }, []);
 
   return (
-    <div className="App" onScroll={changeColorOnScroll}>
+    <div className="App" ref={container} onScroll={() => console.log("zup G")}>
       <div className="header">
-        <p className="option" style={activePage === "aboutMe" ? headerStyleActive : headerStyle} onClick={() => scrollToRef(aboutMe, "aboutMe")}>About me</p>
-        <p className="option" style={activePage === "projects" ? headerStyleActive : headerStyle} onClick={() => scrollToRef(projects, "projects")}>My projects</p>
-        <p className="option" style={headerStyle}>Contact info</p>
+        <p className="option" style={activePage === "aboutMe" ? activeHeaderStyle : null} onClick={() =>{
+          scrollToRef(aboutMe);
+          setActivePage("aboutMe");
+        }}>About me</p>
+        <p className="option" style={activePage === "projects" ? activeHeaderStyle : null} onClick={() => {
+          scrollToRef(projects);
+          setActivePage("projects");
+        }}>My projects</p>
+        <p className="option">Contact info</p>
       </div>
       <Intro reference={aboutMe} />
       <Projects reference={projects} />

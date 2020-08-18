@@ -4,7 +4,6 @@ $accent-yellow: #ffe430;
 $accent-blue: #17d5d1;
 
 .item {
-  margin-right: 2vw;
   height: 30vh;
   min-width: 20vw;
   margin-bottom: 2vh;
@@ -13,8 +12,8 @@ $accent-blue: #17d5d1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 0.5vw;
   margin-right: 0.5vw;
+  margin-left: 0.5vw;
   border-radius: 20px;
   background-position: center !important;
   background-repeat: no-repeat !important;
