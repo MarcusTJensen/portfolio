@@ -11,6 +11,11 @@ $primary-color: #0f1c70;
 #reposList::-webkit-scrollbar {
 }
 
+.scrollable {
+  height: 100%;
+  overflow: auto;
+}
+
 .App {
   display: flex;
   flex-direction: column;
