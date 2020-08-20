@@ -30,6 +30,7 @@ function App() {
       left: 0,
       behavior: `smooth`
     });
+    //window.scrollTo(0, ref.current.offsetTop);
   };
 
   useEffect(() => {
@@ -48,7 +49,7 @@ function App() {
   }
 
   return (
-    <div className="App" ref={container} onClick={() => console.log(navigator.userAgent)}>
+    <div className="App" ref={container} onClick={console.log(navigator.userAgent)}>
         <div className="header">
           <p className="option" style={
             activePage === "aboutMe" ? 
@@ -57,7 +58,6 @@ function App() {
             {color: "#0f1c70"} : null
           } onClick={() =>{
             scrollToRef(aboutMe);
-            if(navigator.appName === "Safari") setActivePage("aboutMe");
           }}>About me</p>
           <p className="option" style={
             activePage === "projects" ? 
@@ -66,15 +66,13 @@ function App() {
             {color: "#0f1c70"} : null
           } onClick={() => {
             scrollToRef(projects);
-            if(navigator.appName === "Safari") setActivePage("projects");
           }}>My projects</p>
           <p className="option" style={
             activePage === "contact" ? 
             contactHeaderStyle : null
           } onClick={() => {
             scrollToRef(contact);
-            if(navigator.appName === "Safari") setActivePage("contact");
-          }}>Contact info</p>
+          }}>Contact me</p>
         </div>
         <Intro reference={aboutMe} />
         <Projects reference={projects} />

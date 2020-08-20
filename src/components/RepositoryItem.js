@@ -45,7 +45,9 @@ const RepositoryItem = (props) => {
                             ))
                         }
                     </div>
-                    <p className="itemText">{props.name}</p>
+                    <div>
+                        <p className="itemText">{props.name}</p>
+                    </div>
                     <p className="description">{props.description}</p>
                 </div>
             </a>

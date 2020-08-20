@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'VarelaRound';
+  src: local('VarelaRound'), url(./fonts/VarelaRound-Regular.ttf) format('truetype');
+}
