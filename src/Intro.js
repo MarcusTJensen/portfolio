@@ -14,8 +14,10 @@ const Intro = (props) => {
                 </div>
             </div>
             <div className="contentContainer">
-                <h1 className="title">About me</h1>
-                <p className="bio">{AboutMe}</p>
+                <div>
+                    <h1 className="title">About me</h1>
+                    <p className="bio">{AboutMe}</p>
+                </div>
             </div>
         </div>
     );

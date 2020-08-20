@@ -8,6 +8,16 @@ $primary-color: #0f1c70;
   overflow: auto;
 }
 
+#reposList::-webkit-scrollbar {
+  background: transparent;
+  height: 10px;
+}
+#reposList::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 5px;
+  height: 5px;
+}
+
 body {
   font-family: VarelaRound;
 }

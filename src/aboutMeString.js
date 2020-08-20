@@ -9,6 +9,6 @@ const AboutMe =
     We have also carried out multiple projects in school where we have worked in groups. 
     Through these projects i have learned a lot about teamwork and scrum, which we have used in every project.
     Throughout my working experience i have mostly used React.js. I enjoy working with the framework and find it challenging, which keeps me motivated.
-    Furthermore i am actively looking for jobs as a developer in Oslo. I am really enjoying my programming currently and can not wait to kick start my carreer.`;
+    Furthermore i am actively looking for jobs as a developer in Oslo. I am really enjoying my programming currently and can not wait to start my carreer.`;
 
 export default AboutMe;
