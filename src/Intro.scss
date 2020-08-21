@@ -10,13 +10,31 @@ $secondary-color: #ff4676;
     background-color: $accent-yellow;
 }
 
+.introContainerMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: $accent-yellow;
+}
+
+.bioMobile {
+    color: $secondary-color;
+    font-size: 1vh;
+    min-width: 100%;
+    line-height: 1.5em;
+    min-height: 100%;
+}
+
 .contentContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-basis: 100%;
-    height: 100%;
+    max-height: 100%;
     max-width: 50vw;
     background-color: $accent-yellow;
 }

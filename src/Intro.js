@@ -4,7 +4,7 @@ import AboutMe from "./aboutMeString";
 
 const Intro = (props) => {
     return(
-        <div class="introContainer" ref={props.reference}>
+        <div class={window.innerHeight < window.innerWidth ? "introContainer" : "introContainerMobile"} ref={props.reference}>
             <div className="contentContainer" id="leftContainer">
                 <div className="images">
                     <img src={process.env.PUBLIC_URL + "/Apple-logo.png"} className="introImg" />
@@ -18,7 +18,7 @@ const Intro = (props) => {
                     <div id="titleContainer">
                         <h1 className="title">About me</h1>
                     </div>
-                    <p className="bio">{AboutMe}</p>
+                    <p className={window.innerHeight < window.innerWidth ? "bio" : "bioMobile"}>{AboutMe}</p>
                 </div>
             </div>
         </div>

@@ -19,19 +19,25 @@ const RepositoryItem = (props) => {
     const [languages, setLanguages] = useState([]);
 
     useEffect(async () => {
-        const result = await props.getLanguages(props.name)
-        setLanguages(result)
+        const result = await props.getLanguages(props.name);
+        setLanguages(result);
+    }, []);
+
+    useEffect(() => {
+        if(window.innerHeight < window.innerWidth){
+
+        }
     }, []);
 
     return(
-        <div id="itemContainer" style= {
+        <div id={window.innerHeight < window.innerWidth ? "itemContainer" : "itemContainerMobile"} style= {
             {
                 marginLeft: props.id === 0 ? "3vw" : null,
                 background: `url(https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${languages[0]}/${languages[0]}.png)`
             }
         }>
             <a target="_blank" href={`https://www.github.com/marcustjensen/${props.name}`} style={{textDecoration: "none"}}>
-                <div className="item">
+                <div className={window.innerHeight < window.innerWidth ? "item" : "itemMobile"}>
                     <div id="languagesDiv">
                         {
                             languages.map((language) => (
