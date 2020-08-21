@@ -12,7 +12,7 @@ $secondary-color: #ff4676;
 
 .introContainerMobile {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
     width: 100vw;
@@ -26,6 +26,17 @@ $secondary-color: #ff4676;
     min-width: 100%;
     line-height: 1.5em;
     min-height: 100%;
+}
+
+.contentContainerMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-basis: 90%;
+    max-height: 100vh;
+    max-width: 90vw;
+    background-color: $accent-yellow;
 }
 
 .contentContainer {
@@ -44,6 +55,13 @@ $secondary-color: #ff4676;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#textContainerMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 #titleContainer {
