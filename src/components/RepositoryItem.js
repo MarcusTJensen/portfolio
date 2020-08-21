@@ -5,6 +5,7 @@ import kotlin from 'programming-languages-logos/src/kotlin/kotlin.svg';
 import JavaScript from 'programming-languages-logos/src/javascript/javascript.svg';
 import java from 'programming-languages-logos/src/java/java.svg';
 import TypeScript from 'programming-languages-logos/src/typescript/typescript.svg';
+import LazyLoad from 'react-lazyload';
 
 const RepositoryItem = (props) => {
 
@@ -38,17 +39,19 @@ const RepositoryItem = (props) => {
         }>
             <a target="_blank" href={`https://www.github.com/marcustjensen/${props.name}`} style={{textDecoration: "none"}}>
                 <div className={window.innerHeight < window.innerWidth ? "item" : "itemMobile"}>
-                    <div id="languagesDiv">
-                        {
-                            languages.map((language) => (
-                                <img className="languagesImg" src={
-                                    language !== "shaderlab" ?
-                                    `https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language}/${language}.png` :
-                                        'https://upload.wikimedia.org/wikipedia/commons/1/19/Unity_Technologies_logo.svg'
-                                } height="75" />
-                            ))
-                        }
-                    </div>
+                    <LazyLoad>
+                        <div id="languagesDiv">
+                            {
+                                languages.map((language) => (
+                                    <img className="languagesImg" src={
+                                        language !== "shaderlab" ?
+                                        `https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language}/${language}.png` :
+                                            'https://upload.wikimedia.org/wikipedia/commons/1/19/Unity_Technologies_logo.svg'
+                                    } height="75" />
+                                ))
+                            }
+                        </div>
+                    </LazyLoad>
                     <div>
                         <p className="itemText">{props.name}</p>
                     </div>
