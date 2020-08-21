@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RepositoryItem from "./components/RepositoryItem";
 import "./Projects.scss";
+import DetailView from "./DetailView";
 
 const Projects = (props) => {
 
@@ -10,6 +11,8 @@ const Projects = (props) => {
         getReposFromGit();
         console.log(props.reference);
       }, []);
+
+    const [isOpen, setIsOpen] = useState(false);
     
       const getReposFromGit = async() => {
         const response = await fetch('https://api.github.com/users/marcustjensen/repos');
@@ -35,10 +38,11 @@ const Projects = (props) => {
             <div id="reposList">
                 {
                     getRepos.map( (repo) => (
-                        <RepositoryItem id={getRepos.indexOf(repo)} name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />
+                        <RepositoryItem setIsOpen={setIsOpen} id={getRepos.indexOf(repo)} name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />
                     ))
                 }
             </div>
+            <DetailView isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     );
 }

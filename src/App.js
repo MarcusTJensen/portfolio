@@ -52,23 +52,23 @@ function App() {
     <div className="App" ref={container} onClick={console.log(navigator.userAgent)}>
         <div className="header">
           <p className="option" style={
-            activePage === "aboutMe" ? 
-            activeHeaderStyle : 
-            activePage === "contact" ? 
+            activePage === "aboutMe" ?
+            activeHeaderStyle :
+            activePage === "contact" ?
             {color: "#0f1c70"} : null
           } onClick={() =>{
             scrollToRef(aboutMe);
           }}>About me</p>
           <p className="option" style={
-            activePage === "projects" ? 
-            activeHeaderStyle : 
-            activePage === "contact" ? 
+            activePage === "projects" ?
+            activeHeaderStyle :
+            activePage === "contact" ?
             {color: "#0f1c70"} : null
           } onClick={() => {
             scrollToRef(projects);
           }}>My projects</p>
           <p className="option" style={
-            activePage === "contact" ? 
+            activePage === "contact" ?
             contactHeaderStyle : null
           } onClick={() => {
             scrollToRef(contact);

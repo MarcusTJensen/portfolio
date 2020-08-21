@@ -6,6 +6,7 @@ import JavaScript from 'programming-languages-logos/src/javascript/javascript.sv
 import java from 'programming-languages-logos/src/java/java.svg';
 import TypeScript from 'programming-languages-logos/src/typescript/typescript.svg';
 import LazyLoad from 'react-lazyload';
+import DetailView from "../DetailView";
 
 const RepositoryItem = (props) => {
 
@@ -37,27 +38,27 @@ const RepositoryItem = (props) => {
                 background: `url(https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${languages[0]}/${languages[0]}.png)`
             }
         }>
-            <a target="_blank" href={`https://www.github.com/marcustjensen/${props.name}`} style={{textDecoration: "none"}}>
-                <div className={window.innerHeight < window.innerWidth ? "item" : "itemMobile"}>
-                    <LazyLoad>
-                        <div id="languagesDiv">
-                            {
-                                languages.map((language) => (
-                                    <img className="languagesImg" src={
-                                        language !== "shaderlab" ?
-                                        `https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language}/${language}.png` :
-                                            'https://upload.wikimedia.org/wikipedia/commons/1/19/Unity_Technologies_logo.svg'
-                                    } height="75" />
-                                ))
-                            }
+            {/*<a target="_blank" href={`https://www.github.com/marcustjensen/${props.name}`} style={{textDecoration: "none"}}>*/}
+                    <div className={window.innerHeight < window.innerWidth ? "item" : "itemMobile"} onClick={() => props.setIsOpen(true)}>
+                        <LazyLoad>
+                            <div id="languagesDiv">
+                                {
+                                    languages.map((language) => (
+                                        <img className="languagesImg" src={
+                                            language !== "shaderlab" ?
+                                            `https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language}/${language}.png` :
+                                                'https://upload.wikimedia.org/wikipedia/commons/1/19/Unity_Technologies_logo.svg'
+                                        } height="75" />
+                                    ))
+                                }
+                            </div>
+                        <div>
+                            <p className="itemText">{props.name}</p>
                         </div>
-                    </LazyLoad>
-                    <div>
-                        <p className="itemText">{props.name}</p>
+                        <p className="description">{props.description}</p>
+                        </LazyLoad>
                     </div>
-                    <p className="description">{props.description}</p>
-                </div>
-            </a>
+            {/*</a>*/}
         </div>
     );
 };
