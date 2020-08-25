@@ -11,8 +11,6 @@ const Projects = (props) => {
         getReposFromGit();
         console.log(props.reference);
       }, []);
-
-    const [isOpen, setIsOpen] = useState(false);
     
       const getReposFromGit = async() => {
         const response = await fetch('https://api.github.com/users/marcustjensen/repos');
@@ -38,11 +36,10 @@ const Projects = (props) => {
             <div id="reposList">
                 {
                     getRepos.map( (repo) => (
-                        <RepositoryItem setIsOpen={setIsOpen} id={getRepos.indexOf(repo)} name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />
+                        <RepositoryItem id={getRepos.indexOf(repo)} name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />
                     ))
                 }
             </div>
-            <DetailView isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     );
 }

@@ -3,10 +3,13 @@ import './App.scss';
 import Intro from "./Intro";
 import Projects from "./Projects";
 import ContactInfo from "./ContactInfo";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import DetailView from "./DetailView";
 
 function App() {
 
   const [activePage, setActivePage] = useState("aboutMe");
+  const [isDetail, setIsDeatail] = useState(false);
 
   const aboutMe = useRef(null);
   const projects = useRef(null);
@@ -38,46 +41,50 @@ function App() {
   }, []);
 
   const changeColorOnScroll = (windowOffset) => {
-    if(windowOffset >= projects.current.offsetTop && windowOffset < contact.current.offsetTop) {
-      setActivePage("projects");
-    } else if (windowOffset >= aboutMe.current.offsetTop && windowOffset < projects.current.offsetTop) {
-      setActivePage("aboutMe");
-    } else if (windowOffset >= contact.current.offsetTop && windowOffset > projects.current.offsetTop) {
-      console.log(contact.current.offsetTop, projects.current.offsetTop)
-      setActivePage("contact");
-    }
+      if(projects.current !== null) {
+          if (windowOffset >= projects.current.offsetTop && windowOffset < contact.current.offsetTop) {
+              setActivePage("projects");
+          } else if (windowOffset >= aboutMe.current.offsetTop && windowOffset < projects.current.offsetTop) {
+              setActivePage("aboutMe");
+          } else if (windowOffset >= contact.current.offsetTop && windowOffset > projects.current.offsetTop) {
+              console.log(contact.current.offsetTop, projects.current.offsetTop)
+              setActivePage("contact");
+          }
+      }
   }
 
   return (
-    <div className="App" ref={container} onClick={console.log(navigator.userAgent)}>
-        <div className="header">
-          <p className="option" style={
-            activePage === "aboutMe" ?
-            activeHeaderStyle :
-            activePage === "contact" ?
-            {color: "#0f1c70"} : null
-          } onClick={() =>{
-            scrollToRef(aboutMe);
-          }}>About me</p>
-          <p className="option" style={
-            activePage === "projects" ?
-            activeHeaderStyle :
-            activePage === "contact" ?
-            {color: "#0f1c70"} : null
-          } onClick={() => {
-            scrollToRef(projects);
-          }}>My projects</p>
-          <p className="option" style={
-            activePage === "contact" ?
-            contactHeaderStyle : null
-          } onClick={() => {
-            scrollToRef(contact);
-          }}>Contact me</p>
-        </div>
-        <Intro reference={aboutMe} />
-        <Projects reference={projects} />
-        <ContactInfo reference={contact} />
-    </div>
+                <div className="App" ref={container}>
+
+                                <div className="header">
+                                  <p className="option" style={
+                                    activePage === "aboutMe" ?
+                                    activeHeaderStyle :
+                                    activePage === "contact" ?
+                                    {color: "#0f1c70"} : null
+                                  } onClick={() =>{
+                                    scrollToRef(aboutMe);
+                                  }}>About me</p>
+                                  <p className="option" style={
+                                    activePage === "projects" ?
+                                    activeHeaderStyle :
+                                    activePage === "contact" ?
+                                    {color: "#0f1c70"} : null
+                                  } onClick={() => {
+                                    scrollToRef(projects);
+                                  }}>My projects</p>
+                                  <p className="option" style={
+                                    activePage === "contact" ?
+                                    contactHeaderStyle : null
+                                  } onClick={() => {
+                                    scrollToRef(contact);
+                                  }}>Contact me</p>
+                                </div>
+                                <Intro reference={aboutMe} />
+                                <Projects reference={projects} />
+                                <ContactInfo reference={contact} />
+                                <DetailView />
+                </div>
   );
 }
 

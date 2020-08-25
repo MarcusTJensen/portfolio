@@ -1,11 +1,14 @@
 import React from 'react';
 import './DetailView.scss';
+import { useHistory } from 'react-router-dom';
 
 const DetailView = (props) => {
 
+    const history = useHistory();
+
     return(
-        <div className="detailViewContainer" style={{display: props.isOpen === true ? "flex" : "none"}}>
-            <button onClick={() => props.setIsOpen(false)}>X</button>
+        <div className="detailViewContainer" ref={props.reference}>
+            <button onClick={() => history.push('/')}>X</button>
         </div>
     );
 };
