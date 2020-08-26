@@ -8,6 +8,7 @@ const DetailView = (props) => {
 
     return(
         <div className="detailViewContainer">
+            <button onClick={() => history.push('/')}>X</button>
         </div>
     );
 };

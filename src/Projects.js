@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import RepositoryItem from "./components/RepositoryItem";
 import "./Projects.scss";
+import gro from "./projects/gro";
 import DetailView from "./DetailView";
 
 const Projects = (props) => {
 
     const [getRepos, setRepos] = useState([]);
+    const [getLanguages, setLanguages] = useState([]);
 
     useEffect(() => {
         getReposFromGit();
@@ -16,6 +18,15 @@ const Projects = (props) => {
         const response = await fetch('https://api.github.com/users/marcustjensen/repos');
         const result = await response.json();
         console.log(result);
+          /*const languagesList  = [];
+          result.forEach(async (repo) => {
+              const lnges = await getLanguagesInRepo(repo.name);
+              console.log(lnges);
+              languagesList.push(lnges);
+
+          });
+          console.log(languagesList);
+          setLanguages(languagesList);*/
         setRepos(result);
       };
     
@@ -31,13 +42,22 @@ const Projects = (props) => {
       };
 
     return(
-        <div class="projectsContainer" ref={props.reference}>
+        <div class="projectsContainer" ref={props.reference} onClick={() => console.log(getLanguages)}>
             <a id="contentText">My projects</a>
             <div id="reposList">
                 {
-                    getRepos.map( (repo) => (
-                        <RepositoryItem setIsDetail={props.setIsDetail} id={getRepos.indexOf(repo)} name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />
-                    ))
+                    getRepos.map( (repo) => {
+                        console.log(getLanguagesInRepo(repo.name));
+                        return (
+                            <RepositoryItem
+                                setIsDetail = {props.setIsDetail}
+                                id = {getRepos.indexOf(repo)}
+                                name = {repo.name}
+                                description = {repo.description}
+                                getLanguages = {getLanguagesInRepo}
+                            />
+                        );
+                    })
                 }
             </div>
       </div>
