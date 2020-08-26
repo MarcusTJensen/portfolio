@@ -20,11 +20,11 @@ const ContactInfo = (props) => {
                 <div className="containerStart">
                     <div className="contactRow" id="firstContactRow">
                         <img src={process.env.PUBLIC_URL + "/email_logo.png"} className="contactLogo" />
-                        <a className="contactLink">marcus.tveide.jensen@hotmail.com</a>
+                        <a className="contactLink" href="mailto:marcus.tveide.jensen@hotmail.com">marcus.tveide.jensen@hotmail.com</a>
                     </div>
                     <div className="contactRow">
                         <img src={process.env.PUBLIC_URL + "/phone_logo.png"}  className="contactLogo" />
-                        <a className="contactLink">+47 98 08 54 87</a>
+                        <a className="contactLink" href="tel:+47-98-08-54-87">+47 98 08 54 87</a>
                     </div>
                 </div>
             </div>
