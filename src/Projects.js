@@ -36,7 +36,7 @@ const Projects = (props) => {
             <div id="reposList">
                 {
                     getRepos.map( (repo) => (
-                        <RepositoryItem id={getRepos.indexOf(repo)} name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />
+                        <RepositoryItem setIsDetail={props.setIsDetail} id={getRepos.indexOf(repo)} name={repo.name} description={repo.description} getLanguages={getLanguagesInRepo} />
                     ))
                 }
             </div>

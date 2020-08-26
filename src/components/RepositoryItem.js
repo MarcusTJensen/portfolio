@@ -6,7 +6,7 @@ import JavaScript from 'programming-languages-logos/src/javascript/javascript.sv
 import java from 'programming-languages-logos/src/java/java.svg';
 import TypeScript from 'programming-languages-logos/src/typescript/typescript.svg';
 import LazyLoad from 'react-lazyload';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link , BrowserRouter as Router} from 'react-router-dom';
 
 const RepositoryItem = (props) => {
 

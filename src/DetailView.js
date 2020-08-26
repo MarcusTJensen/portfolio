@@ -7,8 +7,7 @@ const DetailView = (props) => {
     const history = useHistory();
 
     return(
-        <div className="detailViewContainer" ref={props.reference}>
-            <button onClick={() => history.push('/')}>X</button>
+        <div className="detailViewContainer">
         </div>
     );
 };
