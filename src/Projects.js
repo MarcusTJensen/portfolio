@@ -3,11 +3,26 @@ import RepositoryItem from "./components/RepositoryItem";
 import "./Projects.scss";
 import gro from "./projects/gro";
 import DetailView from "./DetailView";
+import sightzing from "./projects/sightzing";
+import crossPlatformExam from "./projects/crossPlatformExam";
+import iOSExam from "./projects/iOSExam";
+import photonAlarm from "./projects/photonAlarm";
+import javaExam from "./projects/javaExam";
+import kotlinExam from "./projects/kotlinExam";
 
 const Projects = (props) => {
 
     const [getRepos, setRepos] = useState([]);
     const [getLanguages, setLanguages] = useState([]);
+    const projects = [
+        gro,
+        crossPlatformExam,
+        iOSExam,
+        photonAlarm,
+        javaExam,
+        sightzing,
+        kotlinExam
+    ];
 
     useEffect(() => {
         getReposFromGit();
@@ -18,15 +33,6 @@ const Projects = (props) => {
         const response = await fetch('https://api.github.com/users/marcustjensen/repos');
         const result = await response.json();
         console.log(result);
-          /*const languagesList  = [];
-          result.forEach(async (repo) => {
-              const lnges = await getLanguagesInRepo(repo.name);
-              console.log(lnges);
-              languagesList.push(lnges);
-
-          });
-          console.log(languagesList);
-          setLanguages(languagesList);*/
         setRepos(result);
       };
     
@@ -42,11 +48,11 @@ const Projects = (props) => {
       };
 
     return(
-        <div class="projectsContainer" ref={props.reference} onClick={() => console.log(getLanguages)}>
+        <div class="projectsContainer" ref={props.reference}>
             <a id="contentText">My projects</a>
             <div id="reposList">
                 {
-                    getRepos.map( (repo) => {
+                    /*getRepos.map( (repo) => {
                         console.log(getLanguagesInRepo(repo.name));
                         return (
                             <RepositoryItem
@@ -55,6 +61,17 @@ const Projects = (props) => {
                                 name = {repo.name}
                                 description = {repo.description}
                                 getLanguages = {getLanguagesInRepo}
+                            />
+                        );
+                    })*/
+                    projects.map((project) => {
+                        return (
+                            <RepositoryItem
+                                id={projects.indexOf(project)}
+                                name={project.name}
+                                description={project.descriptionShort}
+                                technologies={project.technologies}
+                                activeProject={project}
                             />
                         );
                     })

@@ -9,7 +9,7 @@ const Intro = (props) => {
                 <div className="images">
                     <img src={process.env.PUBLIC_URL + "/Apple-logo.png"} className="introImg" />
                     <img src={process.env.PUBLIC_URL + "/angular.png"} className="introImg" />
-                    <img src={process.env.PUBLIC_URL + "/320px-React-icon.png"} className="introImg" />
+                    <img src={process.env.PUBLIC_URL + "/react.png"} className="introImg" />
                     <img src={process.env.PUBLIC_URL + "/872px-Android_robot.png"} className="introImg" />
                 </div>
             </div>

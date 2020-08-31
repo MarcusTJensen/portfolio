@@ -1,5 +1,40 @@
 .detailViewContainer {
   height: 100vh;
   width: 100vw;
-  background-color: #ff4676;
+  background-color: #17d5d1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainImg {
+  border-radius: 25px;
+  margin-top: 4vh;
+}
+
+.textDiv {
+  width: 40vw;
+}
+
+.projectInfo {
+  color:  #0f1c70;
+  margin-bottom: 0;
+}
+
+#title {
+  font-size: 3vw;
+  margin-bottom: 0;
+}
+#description {
+  margin-left: 1vw;
+}
+.infoListDiv {
+  display: flex;
+}
+
+#infoTitle {
+  font-weight: bolder;
+}
+#infoValue {
+  margin-left: 0.5vw;
 }

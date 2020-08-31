@@ -21,42 +21,34 @@ const RepositoryItem = (props) => {
         TypeScript
     };
 
-    useEffect(async () => {
+    /*useEffect(async () => {
         const response = await props.getLanguages(props.name);
         setLanguages(response);
-    }, []);
+    }, []);*/
 
     return(
         <div id={window.innerHeight < window.innerWidth ? "itemContainer" : "itemContainerMobile"} style= {
             {
                 marginLeft: props.id === 0 ? "3vw" : null,
-                //background: props.languages[props.id] ? `url(https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${props.languages[props.id][0]}/${props.languages[props.id][0]}.png)` : null
-                background: languages ? `url(https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${languages[0]}/${languages[0]}.png)` : null
+                background: `url(${process.env.PUBLIC_URL}/${props.technologies[0]}.png)`
             }
         }>
-            <a target="_blank" href={`https://www.github.com/marcustjensen/${props.name}`} style={{textDecoration: "none"}}>
-                    <div className={window.innerHeight < window.innerWidth ? "item" : "itemMobile"} /*onClick={() => history.push("/details")}*/>
-                        <LazyLoad>
-                            <div id="languagesDiv">
-                                {// props.languages[props.id] ?
-                                    //props.languages[props.id].map((language) => (
-                                    languages ?
-                                    languages.map((language) => (
-                                        <img className="languagesImg" src={
-                                            language !== "shaderlab" ?
-                                            `https://cdn.jsdelivr.net/npm/programming-languages-logos/src/${language}/${language}.png` :
-                                                'https://upload.wikimedia.org/wikipedia/commons/1/19/Unity_Technologies_logo.svg'
-                                        } height="75" />
-                                    )) : null
-                                }
-                            </div>
-                        <div>
-                            <p className="itemText">{props.name}</p>
-                        </div>
-                        <p className="description">{props.description}</p>
-                        </LazyLoad>
+            <div className={window.innerHeight < window.innerWidth ? "item" : "itemMobile"}
+                 onClick={() => history.push("/details", {project: props.activeProject})}>
+                <LazyLoad>
+                    <div id="languagesDiv">
+                        {
+                            props.technologies.map((tech) => (
+                                <img className="languagesImg" src={`${process.env.PUBLIC_URL}/${tech}.png`} height="75"/>
+                            ))
+                        }
                     </div>
-            </a>
+                    <div>
+                        <p className="itemText">{props.name}</p>
+                    </div>
+                    <p className="description">{props.description}</p>
+                </LazyLoad>
+            </div>
         </div>
     );
 };

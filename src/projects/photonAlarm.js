@@ -1,7 +1,9 @@
 const photonAlarm ={
-    technologies: ["Swift", "C++"],
+    technologies: ["swift", "c++"],
     name: "Particle photon alarm",
-    descriptionShort: "Exam in embedded systems course"
+    descriptionShort: "– Exam in embedded systems course",
+    created: "December 2019",
+    github: "github.com/MarcusTJensen/particle-photon-alarm-w-iOS-app"
 };
 
 export default photonAlarm;
