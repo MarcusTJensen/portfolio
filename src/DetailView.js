@@ -1,16 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './DetailView.scss';
 import { useHistory, useLocation } from 'react-router-dom';
+import { IoIosClose } from "react-icons/io";
+import gro from "./projects/gro";
+import RepositoryItem from "./components/RepositoryItem";
+import sightzing from "./projects/sightzing";
+import crossPlatformExam from "./projects/crossPlatformExam";
+import iOSExam from "./projects/iOSExam";
+import photonAlarm from "./projects/photonAlarm";
+import javaExam from "./projects/javaExam";
+import kotlinExam from "./projects/kotlinExam";
 
 const DetailView = (props) => {
 
     const history = useHistory();
     const location = useLocation();
     const project = location.state.project;
+    const [prevProj, setPrevProj] = useState();
 
     useEffect(() => {
+        setPrevProj(location.state.project);
         console.log(location.state.project);
-    }, []);
+        if(prevProj !== project) {
+            window.scrollTo(0, 0);
+        }
+    }, [location.state]);
+
+    const projects = [
+        gro,
+        crossPlatformExam,
+        iOSExam,
+        photonAlarm,
+        javaExam,
+        sightzing,
+        kotlinExam
+    ];
 
     const formatTechs = (str) => {
         let upperCaseCh;
@@ -30,7 +54,7 @@ const DetailView = (props) => {
 
     return(
         <div className="detailViewContainer">
-            <img src={require(`./images/${project.name}/${project.name}header.${project.fileType}`)} height={500} className="mainImg" />
+            <img src={require(`./images/${project.name}/${project.name}header.${project.fileType}`)} className="mainImg" />
             <div className="textDiv">
                 <h1 className="projectInfo" id="title">{project.name}</h1>
                 <h2 className="projectInfo" id="description">{project.descriptionShort}</h2>
@@ -71,8 +95,30 @@ const DetailView = (props) => {
                         <p className="projectInfo" id="infoValue"><a className="projectInfo" target="blank" href={`https://${project.github}`}>{project.github}</a></p>
                     </div> : null
                 }
+                {project.descriptionLong ?
+                    project.descriptionLong.map((str) => (
+                            str
+                    )): null
+                }
             </div>
-            <button onClick={() => history.push('/')}>X</button>
+            <div className="projectsDiv">
+                {
+                    projects.map((project) => {
+                        return (
+                            <div className="projectItemContainer">
+                                <RepositoryItem
+                                    id={projects.indexOf(project)}
+                                    name={project.name}
+                                    description={project.descriptionShort}
+                                    technologies={project.technologies}
+                                    activeProject={project}
+                                />
+                            </div>
+                        );
+                    })
+                }
+            </div>
+            <IoIosClose size="2.5vw" className="backBtn" onClick={() => history.push("/")} />
         </div>
     );
 };

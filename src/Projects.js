@@ -66,13 +66,15 @@ const Projects = (props) => {
                     })*/
                     projects.map((project) => {
                         return (
-                            <RepositoryItem
-                                id={projects.indexOf(project)}
-                                name={project.name}
-                                description={project.descriptionShort}
-                                technologies={project.technologies}
-                                activeProject={project}
-                            />
+                            <div className="repoItemContainer">
+                                <RepositoryItem
+                                    id={projects.indexOf(project)}
+                                    name={project.name}
+                                    description={project.descriptionShort}
+                                    technologies={project.technologies}
+                                    activeProject={project}
+                                />
+                            </div>
                         );
                     })
                 }

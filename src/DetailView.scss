@@ -1,5 +1,5 @@
 .detailViewContainer {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-color: #17d5d1;
   display: flex;
@@ -10,6 +10,38 @@
 .mainImg {
   border-radius: 25px;
   margin-top: 4vh;
+  width: 50vw;
+}
+
+.backBtn {
+  position: fixed;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.projectsDiv {
+  display: flex;
+    flex-direction: row;
+    /* margin: 1vw; */
+    margin-top: 10vh;
+    width: 100vw;
+    flex-wrap: wrap;
+    margin-bottom: 4vh;
+}
+
+.projectItemContainer {
+  margin-bottom: 2vh;
+  margin-left: 4vw;
+  display: flex;
+  /* max-width: 20vw; */
+  min-width: 20vw;
+  max-width: 20vw;
+  height: 25vh;
+  /* width: 20vw; */
+  flex-direction: column;
+  flex: 1 1;
+  flex-wrap: wrap;
 }
 
 .textDiv {

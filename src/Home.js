@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Intro from "./Intro";
 import Projects from "./Projects";
 import ContactInfo from "./ContactInfo";
+import { useLocation } from "react-router-dom";
 
 const Home = (props) => {
 
@@ -11,6 +12,7 @@ const Home = (props) => {
   const projects = useRef(null);
   const container = useRef(null);
   const contact = useRef(null);
+  const location = useLocation();
 
   const activeHeaderStyle = {
     borderBottom: "2px solid #ff4676",

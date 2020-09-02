@@ -29,7 +29,6 @@ const RepositoryItem = (props) => {
     return(
         <div id={window.innerHeight < window.innerWidth ? "itemContainer" : "itemContainerMobile"} style= {
             {
-                marginLeft: props.id === 0 ? "3vw" : null,
                 background: `url(${process.env.PUBLIC_URL}/${props.technologies[0]}.png)`
             }
         }>

@@ -13,4 +13,12 @@ $secondary-color: #ff4676;
     font-size: 5vw;
     margin-bottom: 8vh;
     margin-left: 3vw;
-  }
+}
+
+.repoItemContainer {
+    height: 70%;
+    min-width: 25%;
+    display: flex;
+    margin-left: 4vw;
+    flex-direction: column;
+}
