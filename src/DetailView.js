@@ -96,11 +96,25 @@ const DetailView = (props) => {
                     </div> : null
                 }
                 {project.descriptionLong ?
-                    project.descriptionLong.map((str) => (
-                            str
-                    )): null
+                    <div className="bioDiv">
+                    {
+                        project.descriptionLong.map((str) => (
+                        <p className="projectInfo" id="descriptionLong">{str}</p>
+                        ))
+                    }
+                    </div> : null
                 }
             </div>
+            { project.images ?
+                <div className="projectsDiv">
+                    {
+                        project.images.map((img) => (
+                            <img className="screenshot" src={require(`./images/${project.name}/${img}`)} />
+                        ))
+                    }
+                </div> : null
+            }
+            <p className="projectInfo" id="projectsTitle">My other projects: </p>
             <div className="projectsDiv">
                 {
                     projects.map((project) => {
