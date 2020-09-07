@@ -22,3 +22,12 @@ $secondary-color: #ff4676;
     margin-left: 4vw;
     flex-direction: column;
 }
+
+.repoItemContainerMobile {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    margin-left: 4vw;
+    flex-direction: column;
+    justify-content: center;
+}

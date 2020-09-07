@@ -59,40 +59,40 @@ const DetailView = (props) => {
                 <h1 className="projectInfo" id="title">{project.name}</h1>
                 <h2 className="projectInfo" id="description">{project.descriptionShort}</h2>
                 <div className="infoListDiv" style={{marginTop: "4vh"}}>
-                    <p className="projectInfo" id="infoTitle">Technologies:</p>
+                    <p className="generalInfo" id="infoTitle">Technologies:</p>
                     {
                         project.technologies.map((tech) => {
                             const value = formatTechs(tech);
                             return(
                                 project.technologies.length === 0 ?
-                                <p className="projectInfo" id="infoValue"> {value}</p> :
+                                <p className="generalInfo" id="infoValue"> {value}</p> :
                                     project.technologies.length !== 0 && tech !== project.technologies[project.technologies.length - 1] ?
-                                        <p className="projectInfo" id="infoValue"> {value},</p> :
-                                        <p className="projectInfo" id="infoValue"> {value}</p>
+                                        <p className="generalInfo" id="infoValue"> {value},</p> :
+                                        <p className="generalInfo" id="infoValue"> {value}</p>
                             );
                         })
                     }
                 </div>
                 <div className="infoListDiv">
-                    <p className="projectInfo" id="infoTitle">Created:</p>
-                    <p className="projectInfo" id="infoValue"> {project.created}</p>
+                    <p className="generalInfo" id="infoTitle">Created:</p>
+                    <p className="generalInfo" id="infoValue"> {project.created}</p>
                 </div>
                 {project.role ?
                     <div className="infoListDiv">
-                        <p className="projectInfo" id="infoTitle">Role:</p>
-                        <p className="projectInfo" id="infoValue"> {project.role}</p>
+                        <p className="generalInfo" id="infoTitle">Role:</p>
+                        <p className="generalInfo" id="infoValue"> {project.role}</p>
                     </div> : null
                 }
                 {project.link ?
                     <div className="infoListDiv">
-                        <p className="projectInfo" id="infoTitle">Link:</p>
-                        <p className="projectInfo" id="infoValue"><a className="projectInfo" target="blank" href={`https://${project.link}`}>{project.link}</a></p>
+                        <p className="generalInfo" id="infoTitle">Link:</p>
+                        <p className="generalInfo" id="infoValue"><a className="projectInfo" target="blank" href={`https://${project.link}`}>{project.link}</a></p>
                     </div> : null
                 }
                 {project.github ?
                     <div className="infoListDiv">
-                        <p className="projectInfo" id="infoTitle">Github:</p>
-                        <p className="projectInfo" id="infoValue"><a className="projectInfo" target="blank" href={`https://${project.github}`}>{project.github}</a></p>
+                        <p className="generalInfo" id="infoTitle">Github:</p>
+                        <p className="generalInfo" id="infoValue"><a className="projectInfo" target="blank" href={`https://${project.github}`}>{project.github}</a></p>
                     </div> : null
                 }
                 {project.descriptionLong ?
@@ -119,7 +119,7 @@ const DetailView = (props) => {
                 {
                     projects.map((project) => {
                         return (
-                            <div className="projectItemContainer">
+                            <div className={window.innerHeight < window.innerWidth ? "projectItemContainer" : "projectItemContainerMobile"}>
                                 <RepositoryItem
                                     id={projects.indexOf(project)}
                                     name={project.name}

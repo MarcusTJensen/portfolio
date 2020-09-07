@@ -1,6 +1,6 @@
 .detailViewContainer {
   min-height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
   background-color: #17d5d1;
   display: flex;
   flex-direction: column;
@@ -9,12 +9,13 @@
 
 .mainImg {
   border-radius: 25px;
-  margin-top: 10vh;
+  margin-top: 7vh;
   width: 80vw;
 }
 
 .bioDiv {
   margin-top: 10vh;
+  margin-bottom: 5vh;
 }
 
 .backBtn {
@@ -47,8 +48,23 @@
   flex-wrap: wrap;
 }
 
+.projectItemContainerMobile {
+  margin-bottom: 2vh;
+  margin-right: 2vw;
+  display: flex;
+  /* max-width: 20vw; 
+  min-width: 18vw;
+  max-width: 18vw;*/
+  height: 25vh;
+  /* width: 20vw; */
+  flex-direction: column;
+  flex: 1 1;
+  flex-wrap: wrap;
+}
+
 .textDiv {
   width: 80vw;
+  overflow: auto;
 }
 
 .projectInfo {
@@ -56,8 +72,13 @@
   margin-bottom: 0;
 }
 
+.generalInfo {
+  color:  #0f1c70;
+  margin-bottom: 0;
+  max-width: 70vw;
+}
+
 #title {
-  font-size: 3vw;
   margin-bottom: 0;
 }
 #description {
@@ -79,7 +100,6 @@
 }
 
 #projectsTitle {
-  font-size: 2vw;
   font-weight: bolder;
   margin-top: 10vh;
   margin-bottom: 2vh;

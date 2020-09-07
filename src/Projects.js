@@ -66,7 +66,7 @@ const Projects = (props) => {
                     })*/
                     projects.map((project) => {
                         return (
-                            <div className="repoItemContainer">
+                            <div className={window.innerHeight < window.innerWidth ? "repoItemContainer" : "repoItemContainerMobile"}>
                                 <RepositoryItem
                                     id={projects.indexOf(project)}
                                     name={project.name}
