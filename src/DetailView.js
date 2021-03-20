@@ -54,7 +54,9 @@ const DetailView = (props) => {
 
     return(
         <div className="detailViewContainer">
-            <img src={require(`./images/${project.name}/${project.name}header.${project.fileType}`)} className="mainImg" />
+            <div className="mainImgWrapper">
+                <img src={require(`./images/${project.name}/${project.name}header.${project.fileType}`)} className="mainImg" />
+            </div>
             <div className="textDiv">
                 <h1 className="projectInfo" id="title">{project.name}</h1>
                 <h2 className="projectInfo" id="description">{project.descriptionShort}</h2>

@@ -1,5 +1,5 @@
 
-$secondary-color: #ff4676;
+$secondary-color: #999999;
 $primary-color: #0f1c70;
 
 #reposList {
@@ -15,7 +15,7 @@ $primary-color: #0f1c70;
   height: 10px;
 }
 #reposList::-webkit-scrollbar-thumb {
-  background: grey;
+  background: rgb(128, 128, 128);
   border-radius: 5px;
   height: 5px;
 }
@@ -34,7 +34,7 @@ body {
   flex-direction: column;
   justify-content: center;
   flex-basis: 100%;
-  background-color: $primary-color;
+  background-color: rgba(32, 42, 68, 1);
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -45,11 +45,14 @@ body {
   flex-direction: row;
   position: fixed;
   top: 0;
+  background-color: rgba(32, 42, 68, 1);
+  width: 100%;
+  z-index: 10;
 }
 
 .option {
   cursor: pointer;
   margin-right: 10vw;
   margin-left: 5vw;
-  color: $secondary-color;
+  color: #777777;
 }

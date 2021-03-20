@@ -1,5 +1,5 @@
 $accent-yellow: #ffe430;
-$secondary-color: #ff4676;
+$secondary-color: #999999;
 
 .introContainer {
     display: flex;
@@ -7,7 +7,7 @@ $secondary-color: #ff4676;
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: $accent-yellow;
+    background-color: rgba(32,42,68,1);
 }
 
 .introContainerMobile {
@@ -17,7 +17,7 @@ $secondary-color: #ff4676;
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: $accent-yellow;
+    background-color: rgba(32,42,68,1);
 }
 
 .bioMobile {
@@ -36,7 +36,7 @@ $secondary-color: #ff4676;
     flex-basis: 90%;
     max-height: 100vh;
     max-width: 90vw;
-    background-color: $accent-yellow;
+    background-color: rgba(32,42,68,1);
 }
 
 .contentContainer {
@@ -47,7 +47,7 @@ $secondary-color: #ff4676;
     flex-basis: 100%;
     max-height: 100%;
     max-width: 50vw;
-    background-color: $accent-yellow;
+    background-color: rgba(32,42,68,1);
 }
 
 #textContainer {

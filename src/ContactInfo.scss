@@ -1,5 +1,5 @@
 .containerContactInfo {
-    background-color: #ff4676;
+    background-color: rgba(32,42,68,1);
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -21,7 +21,7 @@
 
 .contactLink {
     text-decoration: none;
-    color: #0f1c70;
+    color: #999999;
     font-size: 2vw;
 }
 
@@ -38,4 +38,5 @@
 .contactLogo {
     margin-right: 1vw;
     width: 10%;
+    filter: grayscale(1);
 }

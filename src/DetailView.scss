@@ -1,16 +1,22 @@
 .detailViewContainer {
   min-height: 100vh;
   max-width: 100vw;
-  background-color: #17d5d1;
+  background-color: rgba(32, 42, 68, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.mainImgWrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 80vw;
+}
+
 .mainImg {
   border-radius: 25px;
   margin-top: 7vh;
-  width: 80vw;
+  width: 60vw;
 }
 
 .bioDiv {
@@ -68,12 +74,12 @@
 }
 
 .projectInfo {
-  color:  #0f1c70;
+  color:  #999999;
   margin-bottom: 0;
 }
 
 .generalInfo {
-  color:  #0f1c70;
+  color:  #999999;
   margin-bottom: 0;
   max-width: 70vw;
 }

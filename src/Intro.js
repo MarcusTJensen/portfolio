@@ -8,9 +8,9 @@ const Intro = (props) => {
             <div className={window.innerHeight < window.innerWidth ? "contentContainer" : "contentContainerMobile"} id="leftContainer">
                 <div className="images">
                     <img src={process.env.PUBLIC_URL + "/Apple-logo.png"} className="introImg" />
-                    <img src={process.env.PUBLIC_URL + "/angular.png"} className="introImg" />
-                    <img src={process.env.PUBLIC_URL + "/react.png"} className="introImg" />
-                    <img src={process.env.PUBLIC_URL + "/872px-Android_robot.png"} className="introImg" />
+                    <img src={process.env.PUBLIC_URL + "/angular_grey.png"} className="introImg" />
+                    <img src={process.env.PUBLIC_URL + "/react_grey.png"} className="introImg" />
+                    <img src={process.env.PUBLIC_URL + "/ANDROID-512.png"} className="introImg" />
                 </div>
             </div>
             <div className={window.innerHeight < window.innerWidth ? "contentContainer" : "contentContainerMobile"}>

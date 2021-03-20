@@ -15,14 +15,8 @@ const Home = (props) => {
   const location = useLocation();
 
   const activeHeaderStyle = {
-    borderBottom: "2px solid #ff4676",
+    borderBottom: "2px solid #777777",
     fontWeight: "bolder"
-  };
-
-  const contactHeaderStyle = {
-    borderBottom: "2px solid #0f1c70",
-    fontWeight: "bolder",
-    color: "#0f1c70"
   };
 
   const scrollToRef = (ref) => {
@@ -55,23 +49,19 @@ const Home = (props) => {
             <div className="header">
                 <p className="option" style={
                     activePage === "aboutMe" ?
-                    activeHeaderStyle :
-                    activePage === "contact" ?
-                    {color: "#0f1c70"} : null
+                    activeHeaderStyle : null
                 } onClick={() =>{
                     scrollToRef(aboutMe);
                 }}>About me</p>
                 <p className="option" style={
                     activePage === "projects" ?
-                    activeHeaderStyle :
-                    activePage === "contact" ?
-                    {color: "#0f1c70"} : null
+                    activeHeaderStyle : null
                 } onClick={() => {
                     scrollToRef(projects);
                 }}>My projects</p>
                 <p className="option" style={
                     activePage === "contact" ?
-                    contactHeaderStyle : null
+                    activeHeaderStyle : null
                 } onClick={() => {
                     scrollToRef(contact);
                 }}>Contact me</p>
